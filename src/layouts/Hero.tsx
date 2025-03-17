@@ -2,28 +2,33 @@ import TypeEffect from "@/utils/TypeEffect";
 
 const Hero = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center lg:p-6 p-3 lg:flex-row flex-col lg:gap-0 gap-10 relative">
-      <div className="flex-1 flex flex-col px-20 lg:items-start items-center mt-32 lg:mt-0">
+    <div
+      className="relative flex flex-col items-center justify-center h-screen gap-10 p-3 lg:p-6 lg:flex-row lg:gap-0"
+      id="hero"
+    >
+      <div className="flex flex-col items-center flex-1 px-20 mt-32 lg:items-start lg:mt-0">
         <img
           src="./hero04.png"
           alt=""
           width="250px"
-          className="bayang rounded-full"
+          className="rounded-full bayang"
         />
-        <h1 className="lg:text-5xl text-3xl mb-2 mt-2 owner">Asril Hidayat</h1>
-        <p className="text-slate-500 h-5 mb-2">
+        <h1 className="mt-2 mb-2 text-3xl lg:text-5xl owner animate__animated animate__fadeInLeft">
+          Asril Hidayat
+        </h1>
+        <p className="h-5 mb-2 text-slate-500 animate__animated animate__fadeInLeft">
           {/* <Typewriter text="Programmer | Collegent" delay={200} infinite /> */}
           Programmer | Collegent
         </p>
-        <p className="lg:text-left text-center">
+        <p className="text-center lg:text-left animate__animated animate__fadeInLeft">
           Fugiat sunt dolore consequat elit non tempor culpa elit.
         </p>
-        <button className="bg-slate-950 text-white px-5 py-2 mt-5 rounded-full hover:bg-slate-600">
+        <button className="px-5 py-2 mt-5 text-white rounded-full bg-slate-950 hover:bg-slate-600">
           Contact Me
         </button>
       </div>
       <div className="flex-1 px-10 text-center lg:text-left">
-        <q className="lg:text-4xl text-2xl text-shadow-lg quotes lg:text-left text-center lg:h-32 inline-block">
+        <q className="inline-block text-2xl text-center lg:text-4xl text-shadow-lg quotes lg:text-left lg:h-32">
           <TypeEffect
             text="It is not who I am underneath, but what I do that defines me."
             delay={150}
@@ -35,7 +40,7 @@ const Hero = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="absolute bottom-0 -z-10"
+        className="absolute bottom-0 w-full -z-10"
       >
         <path
           fill="#CBD5E0"

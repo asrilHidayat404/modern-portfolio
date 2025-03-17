@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .quotes {
   font-family: "Zeyada", cursive;
   font-weight: 800;
@@ -15,5 +14,41 @@
 }
 
 .bayang {
-  box-shadow: 0 0 2px 1px #020617,0 0 2px 2px #cbd5e1,0 0 2px 4px #020617;
+  box-shadow: 0 0 2px 1px #020617, 0 0 2px 2px #cbd5e1, 0 0 2px 4px #020617;
+  animation: spinner 2s ease-out forwards;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translateX(-120px) rotateY(0deg) scaleY(10%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .bayang {
+    box-shadow: 0 0 2px 1px #020617, 0 0 2px 2px #cbd5e1, 0 0 2px 4px #020617;
+    animation: spinner 3s ease-out forwards;
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: translateY(-120px) rotateY(0deg) scaleY(10%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) rotateY(360deg);
+      opacity: 1;
+    }
+  }
 }

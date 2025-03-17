@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
+import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-//   const auth = localStorage.getItem("loggedIn")
-//   console.log(auth)
+  //   const auth = localStorage.getItem("loggedIn")
+  //   console.log(auth)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -14,20 +14,28 @@ const Header = () => {
   const scrollTo = (link: string) => {
     const aboutElement = document.getElementById(link);
     aboutElement?.scrollIntoView({ behavior: "smooth" });
-  }
-  
+  };
+
   return (
-    <header className="fixed m-auto inset-x-0 top-2 rounded-full w-1/2 bg-gray-800 opacity-90 border-b border-b-violet-50 z-10 text-[0.8rem]">
-      <div className="container mx-auto flex md:flex-row flex-col lg:flex-row justify-around items-center">
+    <header className="fixed m-auto inset-x-0 top-2 lg:rounded-full rounded-lg w-1/2 bg-gray-800 opacity-90 border-b border-b-violet-50 z-10 text-[0.8rem]">
+      <div className="container flex flex-col items-center justify-around mx-auto md:flex-row lg:flex-row">
         <div className="flex items-center justify-around ">
-          <div className='overflow-hidden'>
-            <img src="./Logo.png" alt='logo' className='hover:-hue-rotate-180 duration-500 transition-all cursor-pointer' width="80px"/>
+          <div className="overflow-hidden">
+            <img
+              src="./Logo.png"
+              alt="logo"
+              className="transition-all duration-500 cursor-pointer hover:-hue-rotate-180"
+              width="80px"
+            />
           </div>
-          <button className="text-white ml-4 lg:hidden md:hidden" onClick={toggleMenu}>
+          <button
+            className="ml-4 text-white lg:hidden md:hidden"
+            onClick={toggleMenu}
+          >
             {isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -42,7 +50,7 @@ const Header = () => {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -57,31 +65,45 @@ const Header = () => {
             )}
           </button>
         </div>
-        <nav className={`lg:flex lg:pb-0 md:flex items-center bg-red-500 gap-x-7 ${isOpen ? 'block md:pb-5 pb-10 items-center' : 'hidden'}`}>
+        <nav
+          className={`lg:flex lg:pb-0 md:flex items-center justify-center text-center gap-x-7 duration-300 transition ${
+            isOpen ? "block md:pb-5 pb-10 items-center" : "hidden"
+          }`}
+        >
           <Link
-            href="/"
-            className="text-white hover:text-gray-300 block md:inline-block lg:inline-block lg:mt-0 mt-4"
+            href="/#home"
+            onClick={() => scrollTo("home")}
+            className="block mt-4 text-white hover:text-gray-300 md:inline-block lg:inline-block lg:mt-0"
           >
             Home
           </Link>
           <Link
-            href="/#about" 
-            className="text-white hover:text-gray-300 block md:inline-block lg:inline-block lg:mt-0 mt-4"
+            href="/#about"
+            className="block mt-4 text-white hover:text-gray-300 md:inline-block lg:inline-block lg:mt-0"
             onClick={() => scrollTo("about")}
           >
             About
           </Link>
-          <Link 
+          <Link
             href="/"
-            className="text-white hover:text-gray-300 block md:inline-block lg:inline-block lg:mt-0 mt-4">My Projects</Link>
-          <Link 
-            href="/#gallery" 
-            onClick={() => scrollTo("gallery")} 
-            className="text-white hover:text-gray-300 block md:inline-block lg:inline-block lg:mt-0 mt-4">Gallery</Link>
-          <Link 
-            href="/#contact" 
-            onClick={() => scrollTo("contact")} 
-            className="text-white hover:text-gray-300 block md:inline-block lg:inline-block lg:mt-0 mt-4">Contact</Link>
+            className="block mt-4 text-white hover:text-gray-300 md:inline-block lg:inline-block lg:mt-0"
+          >
+            My Projects
+          </Link>
+          <Link
+            href="/#gallery"
+            onClick={() => scrollTo("gallery")}
+            className="block mt-4 text-white hover:text-gray-300 md:inline-block lg:inline-block lg:mt-0"
+          >
+            Gallery
+          </Link>
+          <Link
+            href="/#contact"
+            onClick={() => scrollTo("contact")}
+            className="block mt-4 text-white hover:text-gray-300 md:inline-block lg:inline-block lg:mt-0"
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
