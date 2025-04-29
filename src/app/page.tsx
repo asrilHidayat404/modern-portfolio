@@ -1,3 +1,4 @@
+import Line from "@/components/Line";
 import Section from "@/components/Section";
 import About from "@/layouts/About";
 import Contact from "@/layouts/Contact";
@@ -9,23 +10,31 @@ import Skill from "@/layouts/Skill";
 export default function Home() {
   return (
     <>
-      <Section>
+      <Section id={"home"}>
         <Hero />
       </Section>
 
-      <Section>
+      <Line />
+
+      <Section id={"skill"}>
         <Skill />
       </Section>
 
-      <Section>
+      <Line />
+
+      <Section id={"about"}>
         <About />
       </Section>
 
-      <Section>
+      <Line />
+
+      <Section id={"my projects"}>
         <Projects />
       </Section>
 
-      <Section>
+      <Line />
+
+      <Section id={"contact"}>
         <Contact />
       </Section>
     </>

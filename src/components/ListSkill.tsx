@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface Skills {
   Icon: string;
@@ -7,31 +7,25 @@ interface Skills {
 }
 
 const ListSkill = ({ Icon, SkillName }: Skills) => {
-  const [spin, setSpin] = useState("");
   useEffect(() => {
-    window.AOS.init({
-      // Initialization
-      duration: 1000,
-    });
-  });
+    if (typeof window !== "undefined" && window.AOS) {
+      window.AOS.init({ duration: 1000 });
+    }
+  }, []);
 
   return (
     <div
       data-aos="flip-left"
-      className="w-36 h-36 bg-white transition-all duration-1000 flex flex-col items-center justify-evenly rounded-2xl hover:bg-slate-950 hover:text-white"
-      onMouseEnter={() => setSpin("scale-105 transition duration-400")}
-      onMouseLeave={() => setSpin("")}
+      className="w-36 h-36 bg-white transition duration-900 flex flex-col items-center justify-center rounded-2xl hover:bg-slate-950 hover:text-white shadow-md"
     >
-      <div className={spin}>
-        <img
-          src={Icon}
-          width="80px"
-          className={`${spin} ${
-            SkillName == "Next JS" ? "min-w-[120px]" : null
-          }`}
-        />
-      </div>
-      <div className="font-sans font-semibold">{SkillName}</div>
+      <img
+        src={Icon}
+        alt={SkillName}
+        width={60}
+        height={60}
+        className="object-contain mb-2 transition-transform duration-300 group-hover:scale-110"
+      />
+      <span className="text-sm font-semibold text-center">{SkillName}</span>
     </div>
   );
 };
