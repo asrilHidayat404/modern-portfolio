@@ -25,7 +25,7 @@ const Projects = () => {
       <header className="w-full p-10 text-center">
         <p className="text-3xl font-bold">My Projects</p>
       </header>
-      <div className="grid lg:grid-cols-4 grid-cols-2 gap-10 px-10 place-items-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10 px-10 place-items-center">
         {projectList.map((project, i) => {
           return (
             <ProjectCard

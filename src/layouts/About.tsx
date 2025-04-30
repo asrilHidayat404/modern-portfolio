@@ -1,6 +1,26 @@
+"use client";
 import ImageGrid from "@/components/ImagesGrid";
-
+import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const About = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // durasi animasi dalam ms
+    });
+  }, []);
+  const images: string[] = [
+    "i/i1.jpg",
+    "i/i2.jpg",
+    "i/i3.jpg",
+    "i/i4.jpg",
+    "i/i5.jpg",
+    "https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg",
+    "https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg",
+    "https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg",
+    "https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg",
+  ];
   return (
     <div
       className="w-full flex dark:bg-gray-800 text-gray-800 bg-gray-200 dark:text-gray-200 lg:flex-row flex-col items-end relative lg:py-20 py-44 min-h-screen"
@@ -17,14 +37,9 @@ const About = () => {
             data-aos="fade-right"
             className="flex h-[10rem] gap-2 w-full max-w-full "
           >
-            <ImageGrid Avatar="i/i1.jpg" />
-            <ImageGrid Avatar="i/i2.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
-            <ImageGrid Avatar="https://t4.ftcdn.net/jpg/06/27/42/89/360_F_627428995_O1Uw9skdtStLe8bMnor5HBqksnap0mXo.jpg" />
+            {images.map((img, i: number) => {
+              return <ImageGrid key={i} Avatar={img} />;
+            })}
           </div>
           <p>
             Voluptate adipisicing voluptate adipisicing enim. Quis Lorem velit
@@ -37,9 +52,11 @@ const About = () => {
         </div>
       </div>
       <div className="flex-1 p-8 box-border">
-        <img
-          src="./pexels-matheus-bertelli-573299.jpg"
+        <Image
+          src="/i/hero.jpg"
           alt=""
+          width={1000}
+          height={100}
           className="blur-sm hover:blur-none transition duration-700 rounded-md"
         />
       </div>

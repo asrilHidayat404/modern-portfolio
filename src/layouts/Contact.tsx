@@ -11,10 +11,8 @@ const Contact = () => {
       <header className="font-bold text-4xl text-center mb-10">Contact</header>
       <div className="w-2/3 mx-auto flex gap-10 lg:flex-row flex-col">
         <Social />
-        <ContactInformation />
       </div>
-      <div className="w-2/3 mx-auto bg-slate-300 rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-4">Contact Me</h2>
+      <div className="w-2/3 mx-auto bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded-lg shadow-md p-6">
         <ContactForm />
       </div>
     </div>

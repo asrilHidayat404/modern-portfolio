@@ -1,4 +1,7 @@
 "use client";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Image from "next/image";
 import { useEffect } from "react";
 
 interface Skills {
@@ -8,18 +11,17 @@ interface Skills {
 
 const ListSkill = ({ Icon, SkillName }: Skills) => {
   useEffect(() => {
-    if (typeof window !== "undefined" && window.AOS) {
-      window.AOS.init({ duration: 1000 });
-    }
+    AOS.init({
+      duration: 1000, // durasi animasi dalam ms
+    });
   }, []);
-
   return (
     <div
       data-aos="flip-left"
       className="w-36 h-36 bg-white transition duration-900 flex flex-col items-center justify-center rounded-2xl hover:bg-slate-950 hover:text-white shadow-md"
     >
-      <img
-        src={Icon}
+      <Image
+        src={`/${Icon}`}
         alt={SkillName}
         width={60}
         height={60}

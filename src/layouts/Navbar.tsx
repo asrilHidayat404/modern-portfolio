@@ -1,9 +1,16 @@
 "use client";
-import { Briefcase, House, Image, Phone, User } from "@phosphor-icons/react";
+import {
+  Briefcase,
+  House,
+  Image as Img,
+  Phone,
+  User,
+} from "@phosphor-icons/react";
 
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 type NavLink = {
   label: string;
   icon: React.ElementType;
@@ -20,7 +27,7 @@ const Header = () => {
     { label: "home", icon: House },
     { label: "about", icon: User },
     { label: "my projects", icon: Briefcase },
-    { label: "gallery", icon: Image },
+    { label: "gallery", icon: Img },
     { label: "contact", icon: Phone },
   ];
   const toggleMenu = () => {
@@ -31,11 +38,12 @@ const Header = () => {
     <header className="fixed m-auto inset-x-0 top-2 lg:rounded-full rounded-lg w-1/2 bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-200 opacity-90 shadow dark:shadow-violet-50 shadow-black z-[999] text-[0.8rem]">
       <div className="container flex items-center justify-evenly mx-auto md:flex-row lg:flex-row relstive">
         <div className="overflow-hidden">
-          <img
-            src="./Logo.png"
+          <Image
+            src="/Logo.png"
             alt="logo"
             className="transition-all duration-500 cursor-pointer hover:-hue-rotate-180"
-            width="80px"
+            width={70}
+            height={70}
           />
         </div>
         <button

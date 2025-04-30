@@ -16,6 +16,8 @@
 .bayang {
   box-shadow: 0 0 2px 1px #020617, 0 0 2px 2px #cbd5e1, 0 0 2px 4px #020617;
   animation: spinner 2s ease-out forwards;
+  /* width: 250px;
+  height: 250px; */
 }
 
 @keyframes spinner {
